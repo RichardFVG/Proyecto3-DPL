@@ -1,0 +1,176 @@
+/* public/css/estilos.css */
+
+body {
+    margin: 0;
+    padding: 40px 100px 40px 100px;
+    background-color: #00C8A5;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+main {
+    margin-top: 0px;
+}
+
+/* Encabezados */
+.titulo1 {
+    margin-top: 0px;
+    text-decoration: underline;
+}
+
+.titulo2 {
+    margin-top: 0px;
+    color: #333;
+}
+
+/* Formularios */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* Inputs y áreas de texto */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Botones */
+button {
+    background-color: #0021F3;
+    color: aqua;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+/* Cambio de color cuando se hace hover en el botón */
+button:hover {
+    background-color: #990000;
+    color: aqua;
+}
+
+/* Estilos para tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+th {
+    background-color: #fff;
+}
+
+/* Enlaces en las tablas */
+table a {
+    margin-right: 5px;
+    color: #333;
+    text-decoration: none;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
+
+/* Enlaces del menú */
+nav a {
+    margin-right: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* 
+  Reglas responsive: reduzco tamaños 
+  y ajusto elementos en pantallas pequeñas.
+*/
+@media (max-width: 600px) {
+    /* Ajusto el padding general del body */
+    body {
+        padding: 5px 10px 5px 10px;
+    }
+
+    /* Modifico el formulario para que ocupe 100% */
+    form {
+        padding: 15px;
+    }
+
+    /* Ajusto el botón para pantallas pequeñas */
+    button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    /* Ajusto la tabla para scroll horizontal si es muy ancha */
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* Centra y limita el tamaño del login */
+.login-container {
+    width: 350px;            
+    min-height: 350px;       
+    margin: 0 auto;           
+    position: relative;       
+}
+
+/* Tooltip para el ( ! ) */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;      
+    cursor: pointer;
+}
+
+/* Texto del tooltip */
+.tooltip .tooltiptext {
+    visibility: hidden;       /* Oculto por defecto */
+    width: 180px;
+    background-color: #555;   
+    color: #fff;              
+    text-align: left;
+    padding: 5px;
+    border-radius: 6px;
+    
+    /* Posicionamiento absoluto */
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: -190px;  /* Lo muevo a la izquierda del ( ! ) */
+    
+    /* Efecto de transición (fade in) */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
