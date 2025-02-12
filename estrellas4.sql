@@ -1,10 +1,10 @@
--- Creo la base de datos si no existe
+-- 1. Creo la base de datos valoracion_stars si no existe
 CREATE DATABASE IF NOT EXISTS valoracion_stars;
 
--- Selecciono la base de datos para usarla
+-- 2. Uso la base de datos recién creada (o la ya existente)
 USE valoracion_stars;
 
--- Tabla productos
+-- 3. Tabla 'productos'
 CREATE TABLE IF NOT EXISTS productos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS productos (
     precio DECIMAL(10, 2) NOT NULL
 );
 
--- Valores por defecto en productos
+-- 4. Inserto algunos registros de ejemplo en 'productos'
 INSERT INTO productos (nombre, descripcion, precio) VALUES
 ('Acer AX3950 I5-650 4GB 1TB W7HP 10mp', 'PC de escritorio con procesador Intel Core i5', 500.00),
 ('Archos Clipper MP3 64GB Negro', 'Reproductor de música MP3 con 64GB', 30.00),
@@ -26,18 +26,18 @@ INSERT INTO productos (nombre, descripcion, precio) VALUES
 ('Canon Legira FS306 Plata', 'Cámara de video Canon Legira FS306', 220.00),
 ('LG TDT HD 23 M237WDP-PC FULL HD', 'Televisor LG con sintonizador TDT HD', 350.00);
 
--- Tabla usuarios
+-- 5. Tabla 'usuarios'
 CREATE TABLE IF NOT EXISTS usuarios (
     usuario VARCHAR(20) PRIMARY KEY,
     password VARCHAR(255) NOT NULL
 );
 
--- Usuarios 'admin' y 'ana' con sus contraseñas
+-- 6. Inserto usuarios de ejemplo
 INSERT INTO usuarios (usuario, password) VALUES
 ('admin', '1234'),   -- Contraseña '1234'
 ('ana', '4321');     -- Contraseña '4321'
 
--- Tabla votos
+-- 7. Tabla 'votos'
 CREATE TABLE IF NOT EXISTS votos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     cantidad INT DEFAULT 0,
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS votos (
         ON UPDATE CASCADE
 );
 
--- Votos de ejemplo para productos
+-- 8. Inserto votos de ejemplo para 'admin'
 INSERT INTO votos (cantidad, idPr, idUs) VALUES
 (5, 1, 'admin'),
 (4, 2, 'admin'),
@@ -66,8 +66,11 @@ INSERT INTO votos (cantidad, idPr, idUs) VALUES
 (4, 7, 'admin'),
 (2, 8, 'admin'),
 (3, 9, 'admin'),
-(5, 10, 'admin'),
-(5, 1, 'ana'),      -- Votos para 'ana'
+(5, 10, 'admin');
+
+-- 9. Inserto algunos votos para 'ana'
+INSERT INTO votos (cantidad, idPr, idUs) VALUES
+(5, 1, 'ana'),
 (4, 2, 'ana'),
 (3, 3, 'ana'),
 (4, 4, 'ana'),

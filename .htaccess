@@ -1,7 +1,20 @@
+# .htaccess
+
+# 1. Activo el motor de reescritura
 RewriteEngine On
+
+# 2. Establezco el directorio base de mi 
+#proyecto
 RewriteBase /proyecto/
 
+# 3. Permito el acceso directo al index.php
 RewriteRule ^index.php$ - [L]
+
+# 4. Condiciones para evitar redirigir si 
+#el archivo o directorio existe
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+
+# 5. Redirijo todas las peticiones a 
+#public/index.php
 RewriteRule . /public/index.php [QSA,L]
